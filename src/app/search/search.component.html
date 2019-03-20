@@ -1,0 +1,49 @@
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2{font-family: "Arial", sans-serif}
+body, html {height: 100%}
+p {line-height: 2}
+
+
+/* .bgimg {background-image: url(*ngIf="artist.images.length > 0" [src]="artist.images[0].url" alt="No images" class="w3-image")} */
+
+</style>
+<p></p>
+<h1 >Need Music ?</h1>
+<p class="need">Use MySpotify App to find new musics !</p>
+<form>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="searchStr" class='form-control' placeholder="Search Music ..."
+      [ngModelOptions]="{standalone: true}">
+  </div>
+  <button type="submit" (click)="searchMusical()" name="submit" class="button"
+    style="vertical-align:middle"><span>Search</span></button>
+</form>
+
+
+
+  <ng-container *ngIf=" resultSearch !== null">
+    <div *ngFor="let artist of  resultSearch">
+      <!-- Page Content -->
+      
+        <!-- Header/Home -->
+        <header class="w3-container w3-padding-32 w3-center w3-grey" id="home">
+          <!-- <div class="w3-display-middle w3-text-white w3-center"> -->
+            <img *ngIf="artist.images.length > 0" [src]="artist.images[0].url" alt="No images" class="w3-image" />
+            <h1 class="w3-jumbo">{{artist.name}}</h1>
+            <h2>GENRES: {{artist.genres}}</h2>
+            <h2><b>POPULARITY: {{artist.popularity}}</b></h2>
+            <h2>TYPE: {{artist.type}}</h2>
+          <!-- </div> -->
+        </header>
+     
+    </div>
+  </ng-container>
+
+
+</html>
